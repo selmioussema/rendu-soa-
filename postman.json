@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "752f381c-12ae-449c-87e0-ffac1e5a0318",
+		"name": "rendu SOA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "48868297"
+	},
+	"item": [
+		{
+			"name": "options",
+			"item": [
+				{
+					"name": "all options",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": 1,\n  \"nom\": \"GLSI\",\n  \"domaine\": \"formatic\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/Gestion_Options_Etudiants_war_exploded/rest/options"
+					},
+					"response": []
+				},
+				{
+					"name": "option by domain",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/Gestion_Options_Etudiants_war_exploded/rest/options?domaine=formatic",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Gestion_Options_Etudiants_war_exploded",
+								"rest",
+								"options"
+							],
+							"query": [
+								{
+									"key": "domaine",
+									"value": "formatic"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "option by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/Gestion_Options_Etudiants_war_exploded/rest/options/3"
+					},
+					"response": []
+				},
+				{
+					"name": "add an option",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n    {\n        \"codeOption\": 10,\n        \"libelle\": \"Informatique\",\n        \"domaine\": \"formatic\",\n        \"responsable\": \"Mme EMNA RBII\",\n        \"credits\": 30,\n        \"semestre\": 1,\n        \"capacite\": 30\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/Gestion_Options_Etudiants_war_exploded/rest/options"
+					},
+					"response": []
+				},
+				{
+					"name": "by option code",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Gestion_Options_Etudiants_war_exploded/rest/options/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Gestion_Options_Etudiants_war_exploded",
+								"rest",
+								"options",
+								"10"
+							],
+							"query": [
+								{
+									"key": "domaine",
+									"value": "formatic",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update option by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n  {\n    \"codeOption\": 3,\n    \"libelle\": \"formatic\",\n    \"domaine\":  \"formatic\",\n    \"responsable\": \"mme emna \",\n    \"credits\": 30,\n    \"semestre\": 1,\n    \"capacite\": 30\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/Gestion_Options_Etudiants_war_exploded/rest/options/3"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "students",
+			"item": [
+				{
+					"name": "all students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/Gestion_Options_Etudiants_war_exploded/rest/etudiants"
+					},
+					"response": []
+				},
+				{
+					"name": "student by  code option  (xml)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n        \"identifiant\": \"LM10\",\n        \"nom\": \"MESSI\",\n        \"prenom\": \"LIONEL ANDREAS\",\n        \"option\": {\n            \"codeOption\": 1,\n            \"libelle\": \"SPORT\",\n            \"domaine\": \"foot\",\n            \"responsable\": \"M. Responsable \",\n            \"credits\": 30,\n            \"semestre\": 1,\n            \"capacite\": 30\n        },\n        \"anneeEtude\": 2024,\n        \"email\": \"lionel.messi@gmail.com\"\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/Gestion_Options_Etudiants_war_exploded/rest/etudiants/option?codeOption=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Gestion_Options_Etudiants_war_exploded",
+								"rest",
+								"etudiants",
+								"option"
+							],
+							"query": [
+								{
+									"key": "codeOption",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "student by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n        \"identifiant\": \"LM10\",\n        \"nom\": \"MESSI\",\n        \"prenom\": \"LIONEL ANDREAS\",\n        \"option\": {\n            \"codeOption\": 1,\n            \"libelle\": \"SPORT\",\n            \"domaine\": \"foot\",\n            \"responsable\": \"M. Responsable \",\n            \"credits\": 30,\n            \"semestre\": 1,\n            \"capacite\": 30\n        },\n        \"anneeEtude\": 2024,\n        \"email\": \"lionel.messi@gmail.com\"\n    }"
+						},
+						"url": "http://localhost:8080/Gestion_Options_Etudiants_war_exploded/rest/etudiants/I001"
+					},
+					"response": []
+				},
+				{
+					"name": "add a student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n        \"identifiant\": \"LM10\",\n        \"nom\": \"MESSI\",\n        \"prenom\": \"LIONEL ANDREAS\",\n        \"option\": {\n            \"codeOption\": 1,\n            \"libelle\": \"SPORT\",\n            \"domaine\": \"foot\",\n            \"responsable\": \"M. Responsable \",\n            \"credits\": 30,\n            \"semestre\": 1,\n            \"capacite\": 30\n        },\n        \"anneeEtude\": 2024,\n        \"email\": \"lionel.messi@gmail.com\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/Gestion_Options_Etudiants_war_exploded/rest/etudiants"
+					},
+					"response": []
+				},
+				{
+					"name": "delite student by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n        \"identifiant\": \"LM10\",\n        \"nom\": \"MESSI\",\n        \"prenom\": \"LIONEL ANDREAS\",\n        \"option\": {\n            \"codeOption\": 1,\n            \"libelle\": \"SPORT\",\n            \"domaine\": \"foot\",\n            \"responsable\": \"M. Responsable \",\n            \"credits\": 30,\n            \"semestre\": 1,\n            \"capacite\": 30\n        },\n        \"anneeEtude\": 2024,\n        \"email\": \"lionel.messi@gmail.com\"\n    }"
+						},
+						"url": "http://localhost:8080/Gestion_Options_Etudiants_war_exploded/rest/etudiants/I001"
+					},
+					"response": []
+				},
+				{
+					"name": "update by student id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"identifiant\": \"I003\",\n    \"nom\": \"Durand\",\n    \"prenom\": \"Pierre\",\n    \"option\": {\n        \"codeOption\": 2,\n        \"libelle\": \"anglais\",\n        \"domaine\": \"anglais\",\n        \"responsable\": \"Mme Responsable Mathématiques\",\n        \"credits\": 25,\n        \"semestre\": 1,\n        \"capacite\": 25\n    },\n    \"anneeEtude\": 2023,\n    \"email\": \"pierre.durand@example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/Gestion_Options_Etudiants_war_exploded/rest/etudiants/I003"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
